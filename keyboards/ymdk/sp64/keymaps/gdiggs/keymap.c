@@ -8,7 +8,7 @@ enum layer_names {
 
 // tap to toggle caps lock, hold for control
 #define CAPS_CTL MT(MOD_LCTL, KC_CAPS)
-#define FN_SPACE(MO(_FN), KC_SPACE)
+#define FN_SPACE LT(_FN, KC_SPACE)
 
 enum custom_keycodes {
   TRIPLE_TICK = SAFE_RANGE
