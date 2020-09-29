@@ -8,6 +8,7 @@ enum layer_names {
 
 // tap to toggle caps lock, hold for control
 #define CAPS_CTL MT(MOD_LCTL, KC_CAPS)
+#define FN_SPACE(MO(_FN), KC_SPACE)
 
 enum custom_keycodes {
   TRIPLE_TICK = SAFE_RANGE
@@ -38,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├---------┴┬----┴┬----┴┬----┴┬----┴┬----┴┐   └┬----┴┬----┴┬----┴┬----┴┬----┴┬----┴┬-----┬-----┤
  * │ LShift   │  Z  │  X  │  C  │  V  │  B  │    │  N  │  M  │  <  │  >  │  ?  │ Sft │ Up  │ `   │
  * ├------┬---┴-┬---┴--┬--┴-----┴----┬┴----┬┘   ┌┴-----┴-----┴--┬--┴----┬┴-----┼-----┼-----┼-----┤
- * │ Ctrl │ Win │ Alt  │             │ Fn  │    │               │ Alt   │ Win  │ Lft │ Dwn │ Rgt │
+ * │ Ctrl │ Win │ Alt  │             |Fn/sp│    │               │ Alt   │ Win  │ Lft │ Dwn │ Rgt │
  * └------┴-----┴------┴-------------┴-----┘    └---------------┴-------┴------┴-----┴-----┴-----┘
  */
 [BASE] = LAYOUT(
@@ -46,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,     KC_R,    KC_T,               KC_Y,     KC_U, KC_I,    KC_O,    KC_P,      KC_LBRACKET, KC_RBRACKET, KC_BSLS,
   CAPS_CTL, KC_A,    KC_S,    KC_D,     KC_F,    KC_G,               KC_H,     KC_J, KC_K,    KC_L,    KC_SCOLON, KC_QUOTE,                 KC_ENTER,
   KC_LSFT, KC_Z,    KC_X,    KC_C,     KC_V,    KC_B,               KC_N,     KC_M, KC_COMM, KC_DOT,  KC_SLSH,   KC_RSFT,     KC_UP,       KC_GRV,
-  KC_LCTL, KC_LGUI, KC_LALT, KC_SPACE,      MO(_FN),     KC_SPACE,                  MO(_FN), KC_LGUI,            KC_LEFT,     KC_DOWN,     KC_RIGHT
+  KC_LCTL, KC_LGUI, KC_LALT, KC_SPACE,     FN_SPACE,     KC_SPACE,                  MO(_FN), KC_LGUI,            KC_LEFT,     KC_DOWN,     KC_RIGHT
   ),
 /* Function
  *
