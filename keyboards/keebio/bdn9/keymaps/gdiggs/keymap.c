@@ -14,6 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
+#define DISCORD_PTT LGUI(LSFT(KC_B))
 
 enum encoder_names {
   _LEFT,
@@ -25,12 +26,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         | Knob 1: Vol Dn/Up |            | Knob 2: Page Dn/Up |
         | Press: Mute       | Space      | Press: Home        |
         | Previous          | Play/Pause | Next               |
-        | Layer 1           | Backtick   | Enter              |
+        | Layer 1           | Backtick   | Discord PTT        |
      */
     [0] = LAYOUT(
         KC_MUTE, KC_SPACE, KC_HOME,
         KC_MPRV, KC_MPLY  , KC_MNXT,
-        MO(1), KC_GRV, KC_ENTER
+        MO(1), KC_GRV, DISCORD_PTT
     ),
     /*
         | N/A   | N/A     | N/A     |
