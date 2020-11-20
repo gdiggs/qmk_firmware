@@ -32,16 +32,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
         KC_MUTE, KC_SPACE, KC_HOME,
         KC_MPRV, KC_MPLY  , KC_MNXT,
-        MO(1), SCREENSHOT, DISCORD_PTT
+        TT(1), SCREENSHOT, DISCORD_PTT
     ),
     /*
-        | N/A   | N/A     | N/A     |
-        | Back  | Refresh | Forward |
+        | N/A   | Uo      | N/A     |
+        | Left  | Down    | Right   |
         | N/A   | Tilde   | Win     |
      */
     [1] = LAYOUT(
-        _______, _______, _______,
-        KC_WBAK, KC_WREF, KC_WFWD,
+        _______, KC_UP, _______,
+        KC_LEFT, KC_DOWN, KC_RIGHT,
         _______, KC_TILDE, KC_LGUI
     ),
 };
@@ -55,10 +55,18 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         }
     }
     else if (index == _RIGHT) {
+      if (IS_LAYER_ON(1)) {
+        if (clockwise) {
+            tap_code(KC_RIGHT);
+        } else {
+            tap_code(KC_LEFT);
+        }
+      } else {
         if (clockwise) {
             tap_code(KC_DOWN);
         } else {
             tap_code(KC_UP);
         }
+      }
     }
 }
